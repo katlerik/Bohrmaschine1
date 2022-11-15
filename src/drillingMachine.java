@@ -14,50 +14,61 @@ public class drillingMachine {
         this.age = (int)(Math.random()*10+0);
         this.name = "Adolf";
         this.price = (int)(Math.random()*450 + 50);
-        this.broken =broken;
+        this.broken =true;
 
 
     }
 
 
-    public int getWatt() {
-        return watt;
+
+
+
+
+    public void becomeBroken(){
+        this.broken=true;
     }
 
-    public int getAge() {
-        return age;
+    public void repair(){
+        if (this.broken == true){
+            this.broken = false;
+            this.price = price*0.5;
+        }
     }
 
-    public String getName() {
-        return name;
+    public void aging(){
+        this.age = age+1;
+        if (this.age > 9 )
+            this.broken=true;
+    }
+    public void reactOnHighDemand(){
+        this.price = price*1.25;
     }
 
-    public double getPrice() {
-        return price;
+    public void showInfo(){
+        System.out.println(this.name + "," + this.price+ "," + this.broken+ ","+ this.watt);
     }
 
-    public boolean isBroken() {
-        return broken;
+    public void increasePrice(double amount){
+        this.price=price+amount;
+    }
+
+    public void changePower(int watt){
+        if (watt>0)
+            this.watt= this.watt+watt;
+            if (watt > 100)
+                this.price=price*1.05;
+
+
+        if (watt < 0)
+            this.price=price*0.9;
+
+
 
     }
 
-    public void setWatt(int watt) {
-        this.watt = watt;
+
     }
 
-    public void setAge(int age) {
-        this.age = age;
-    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
-    public void setPrice(double price) {
-        this.price = price;
-    }
 
-    public void setBroken(boolean broken) {
-        this.broken = broken;
-    }
-}
