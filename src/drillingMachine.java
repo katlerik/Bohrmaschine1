@@ -65,7 +65,12 @@ public class drillingMachine {
 
 
     }
+    public boolean increasePriceByPercentage(double percentage){
+        if(percentage > 0.00){
+            this.price = price + percentage*price/100;
+        }
 
+    }
 
     }
 
